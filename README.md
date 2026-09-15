@@ -1,108 +1,87 @@
-# GlobalTradeHub — мобильное приложение (Expo / React Native)
+# GlobalTradeHub — Twilio SMS backend
 
-Это исходный код мобильного приложения с тем же функционалом, что и в веб-версии:
-категории отраслей, каталог компаний, поиск, регистрация (email или телефон с
-демо-подтверждением по СМС), чат и демо видеозвонка через камеру телефона.
+Small server that sends and checks one-time SMS codes using Twilio's Verify API,
+so phone-number registration in GlobalTradeHub can send real SMS instead of the
+demo code.
 
-## Важно понимать
+## Why this is a separate server
 
-Это **исходный код**, а не готовый файл `.ipa` (iOS) или `.apk`/`.aab` (Android),
-который можно сразу загрузить в магазин. Чтобы попасть в App Store и Google Play,
-нужно пройти ещё несколько шагов, которые требуют ваших собственных аккаунтов
-разработчика — этого нельзя сделать автоматически из чата:
+Twilio's account SID and auth token are secret credentials. They must never be
+placed in frontend/browser code (including a React artifact) — anyone viewing
+the page's source could steal them and send SMS on your account's bill. This
+server keeps those secrets on the backend and exposes two safe HTTP endpoints
+for the frontend to call.
 
-- **Apple Developer Program** — $99/год, нужен для публикации в App Store
-  (https://developer.apple.com/programs/)
-- **Google Play Console** — разовый взнос $25, нужен для публикации в Google Play
-  (https://play.google.com/console/)
-- Компиляция (сборка) под iOS и Android
-- Иконки приложения, скриншоты, описание — материалы для страницы в магазине
-- Прохождение модерации Apple/Google (может занять от нескольких часов до нескольких дней)
+## 1. Get Twilio credentials
 
-## Как собрать приложение (пошагово)
+1. Create a free account at https://www.twilio.com/try-twilio
+2. From the [Twilio Console](https://console.twilio.com), copy your
+   **Account SID** and **Auth Token**.
+3. Go to **Verify > Services** (https://console.twilio.com/us1/develop/verify/services)
+   and create a new Verify Service. Copy its **Service SID** (starts with `VA`).
+   Verify handles code generation, expiry, retries and rate limiting for you —
+   no need to build that yourself.
+4. Trial accounts can only send SMS to phone numbers you've verified in the
+   console under **Phone Numbers > Verified Caller IDs**. Upgrade the account
+   to send to any number.
 
-### 1. Установите инструменты
+## 2. Configure
 
 ```bash
-npm install -g eas-cli
-cd mobile-app
+cp .env.example .env
+# then edit .env and paste your real SID / token / service SID
+```
+
+## 3. Install and run
+
+```bash
 npm install
+npm start
 ```
 
-### 2. Создайте бесплатный аккаунт на expo.dev
+The server starts on `http://localhost:3001` (or the `PORT` you set).
+
+Check it's alive:
 
 ```bash
-eas login
+curl http://localhost:3001/health
 ```
 
-### 3. Добавьте иконки
+## 4. Deploy it somewhere reachable from the internet
 
-Положите свои файлы в `assets/`:
-- `icon.png` — 1024×1024
-- `adaptive-icon.png` — 1024×1024 (Android)
-- `splash.png` — экран загрузки
-- `favicon.png` — для веб-версии Expo (не обязательно)
+Options that work well for a small Node server: Render, Railway, Fly.io, a
+plain VPS with PM2, or a serverless function platform adapted to Express
+(e.g. Vercel with a small wrapper). Whatever you choose, note the public
+HTTPS URL it gives you.
 
-Без них сборка использует иконку Expo по умолчанию — это будет работать для
-теста, но не подходит для публикации в магазине.
+## 5. Point the frontend at it
 
-### 4. Проверьте приложение локально
+In `GlobalTradeHub.jsx`, near the top of the file, set:
 
-```bash
-npx expo start
+```js
+const API_BASE_URL = "https://your-deployed-backend.example.com";
 ```
 
-Откроется QR-код — отсканируйте его приложением **Expo Go** на телефоне
-(доступно в App Store и Google Play), чтобы увидеть приложение вживую без сборки.
+Leave it as an empty string `""` to keep the frontend in local demo mode
+(no real SMS, the code is shown in an on-screen notification instead).
 
-### 5. Настройте сборку
+## Endpoints
 
-```bash
-eas build:configure
-```
+### `POST /api/send-code`
+Body: `{ "phone": "+37411234567" }`
+Sends an SMS with a one-time code to that number.
 
-Впишите свой `bundleIdentifier` (iOS) и `package` (Android) в `app.json` —
-сейчас там заглушка `com.yourcompany.globaltradehub`, замените
-`yourcompany` на что-то уникальное.
+### `POST /api/verify-code`
+Body: `{ "phone": "+37411234567", "code": "1234" }`
+Response: `{ "verified": true }` or `{ "verified": false }`
 
-### 6. Соберите приложение
+## Security notes for production
 
-```bash
-eas build --platform ios
-eas build --platform android
-```
-
-Для iOS-сборки потребуется войти в свой Apple Developer аккаунт при первом
-запуске — EAS сам создаст нужные сертификаты.
-
-Через 10–20 минут EAS выдаст ссылку на готовый `.ipa` и `.aab` файл.
-
-### 7. Отправьте в магазины
-
-```bash
-eas submit --platform ios
-eas submit --platform android
-```
-
-Или загрузите файлы вручную через App Store Connect и Google Play Console.
-
-## Реальные видеозвонки и SMS
-
-- Демо видеозвонка использует камеру телефона локально (`expo-camera`).
-  Для звонков между двумя разными пользователями нужен сервер сигнализации
-  (WebRTC) — это отдельная серверная часть, не входящая в это приложение.
-- SMS-подтверждение работает в демо-режиме (код показывается на экране).
-  Чтобы включить настоящую отправку SMS через Twilio, разверните сервер из
-  папки `../web/twilio-backend` и впишите его адрес в переменную
-  `API_BASE_URL` в начале файла `App.js`.
-
-## Структура проекта
-
-```
-mobile-app/
-├── App.js           — весь код приложения
-├── app.json         — конфигурация Expo (имя, иконки, bundle ID)
-├── package.json     — зависимости
-├── babel.config.js  — конфигурация сборки
-└── assets/          — сюда положить иконки и splash-экран
-```
+- Add rate limiting (e.g. `express-rate-limit`) on `/api/send-code` to stop
+  abuse that could run up your Twilio bill.
+- Validate phone number format (e.g. with `libphonenumber-js`) before calling
+  Twilio.
+- Restrict CORS (`cors()` is wide open here for convenience) to your actual
+  frontend domain.
+- Put this behind HTTPS in production (most hosting platforms do this for
+  you automatically).
