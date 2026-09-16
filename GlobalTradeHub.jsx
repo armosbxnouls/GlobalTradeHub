@@ -7,8 +7,8 @@ import {
 } from "lucide-react";
 
 const LANGS = {
-  en: "English",
   ru: "Русский",
+  en: "English",
   es: "Español",
   fr: "Français",
   zh: "中文",
