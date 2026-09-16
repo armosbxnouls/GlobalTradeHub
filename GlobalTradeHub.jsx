@@ -487,7 +487,7 @@ const COUNTRIES = ["🇦🇲 Armenia", "🇷🇺 Russia", "🇺🇸 USA", "🇩�
 
 // Set this to your deployed Twilio backend URL (see twilio-backend/server.js) to send real SMS.
 // Leave empty to keep the local demo mode (no real SMS, code shown in a notification).
-const API_BASE_URL = "";
+const API_BASE_URL = "https://globaltradehub.onrender.com";
 
 function VideoDemo({ t, onClose }) {
   const videoRef = useRef(null);
