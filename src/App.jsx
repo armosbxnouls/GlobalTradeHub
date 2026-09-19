@@ -8,8 +8,8 @@ import {
 } from "lucide-react";
 
 const LANGS = {
-  en: "English",
   ru: "Русский",
+  en: "English",
   es: "Español",
   fr: "Français",
   zh: "中文",
@@ -1074,8 +1074,18 @@ function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpen
     else setVideos((v) => v.filter((x) => x.id !== item.id));
   };
 
-  const save = () => {
-    onSave({ address, phones, photos, videos });
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
+
+  const save = async () => {
+    setSaveError("");
+    setSaving(true);
+    try {
+      await onSave({ address, phones, photos, videos });
+    } catch (e) {
+      setSaveError((e && e.message) || t.sendError);
+    }
+    setSaving(false);
   };
 
   return (
@@ -1199,13 +1209,15 @@ function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpen
           )}
         </div>
 
-        <div style={{ padding: "0 20px 20px", display: "flex", gap: 10 }}>
+        {saveError && <div style={{ padding: "0 20px", color: "#993C1D", fontSize: 12 }}>{saveError}</div>}
+
+        <div style={{ padding: "12px 20px 20px", display: "flex", gap: 10 }}>
           <button onClick={() => onOpenChat(company)} style={{ flex: 1, background: "#0F1B2D", color: "#D9A441", border: "none", borderRadius: 10, padding: "11px 0", fontSize: 13, fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
             <MessageCircle size={14} /> {t.message}
           </button>
           {isMine && (
-            <button onClick={save} style={{ flex: 1, background: "#D9A441", color: "#412402", border: "none", borderRadius: 10, padding: "11px 0", fontSize: 13, fontWeight: 700, cursor: "pointer" }}>
-              {t.save}
+            <button onClick={save} disabled={saving} style={{ flex: 1, background: "#D9A441", color: "#412402", border: "none", borderRadius: 10, padding: "11px 0", fontSize: 13, fontWeight: 700, cursor: saving ? "default" : "pointer", opacity: saving ? 0.7 : 1 }}>
+              {saving ? "…" : t.save}
             </button>
           )}
         </div>
@@ -1292,10 +1304,11 @@ export default function GlobalTradeHub() {
 
   const handleProfileSave = async (id, updates) => {
     // Persist address + phones to the companies table.
-    await supabase.from("companies").update({
+    const { error: updateError } = await supabase.from("companies").update({
       address: updates.address,
       phones: updates.phones,
     }).eq("id", id);
+    if (updateError) throw updateError;
 
     // Any newly added photos/videos that aren't in the database yet get inserted.
     const existingPhotoIds = new Set((profileCompany?.photos || []).filter((p) => typeof p.id !== "number" || String(p.id).length < 13).map((p) => p.id));
@@ -1304,7 +1317,8 @@ export default function GlobalTradeHub() {
       ...updates.videos.filter((v) => !(profileCompany?.videos || []).some((old) => old.id === v.id)).map((v) => ({ type: "video", url: v.url })),
     ];
     if (newMedia.length > 0) {
-      await supabase.from("company_media").insert(newMedia.map((m) => ({ company_id: id, type: m.type, url: m.url })));
+      const { error: insertError } = await supabase.from("company_media").insert(newMedia.map((m) => ({ company_id: id, type: m.type, url: m.url })));
+      if (insertError) throw insertError;
     }
 
     setCompanies((cs) => cs.map((c) => (c.id === id ? { ...c, ...updates } : c)));
