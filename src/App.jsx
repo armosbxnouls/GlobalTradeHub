@@ -8,8 +8,8 @@ import {
 } from "lucide-react";
 
 const LANGS = {
-  ru: "Русский",
   en: "English",
+  ru: "Русский",
   es: "Español",
   fr: "Français",
   zh: "中文",
@@ -1058,6 +1058,22 @@ function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpen
     if (url) setVideos((v) => [...v, { id: Date.now(), url }]);
   };
 
+  const removeMedia = async (item, kind) => {
+    // Remove the underlying file from Supabase Storage, if we can determine its path.
+    const marker = "/company-media/";
+    const idx = item.url.indexOf(marker);
+    if (idx !== -1) {
+      const path = item.url.slice(idx + marker.length);
+      await supabase.storage.from("company-media").remove([path]);
+    }
+    // If this item was already saved to the database (real UUID id), remove that row too.
+    if (typeof item.id === "string" && item.id.includes("-")) {
+      await supabase.from("company_media").delete().eq("id", item.id);
+    }
+    if (kind === "photo") setPhotos((p) => p.filter((x) => x.id !== item.id));
+    else setVideos((v) => v.filter((x) => x.id !== item.id));
+  };
+
   const save = () => {
     onSave({ address, phones, photos, videos });
   };
@@ -1143,7 +1159,14 @@ function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpen
               )}
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
                 {photos.map((p) => (
-                  <img key={p.id} src={p.url} alt="" style={{ width: "100%", aspectRatio: "1", objectFit: "cover", borderRadius: 8 }} />
+                  <div key={p.id} style={{ position: "relative", width: "100%", aspectRatio: "1" }}>
+                    <img src={p.url} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 8 }} />
+                    {isMine && (
+                      <button onClick={() => removeMedia(p, "photo")} title={t.removePhone} style={{ position: "absolute", top: 4, right: 4, width: 22, height: 22, borderRadius: "50%", border: "none", background: "rgba(15,27,45,0.75)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                        <X size={13} />
+                      </button>
+                    )}
+                  </div>
                 ))}
                 {videos.map((v) => (
                   <div key={v.id} style={{ position: "relative", width: "100%", aspectRatio: "1", borderRadius: 8, overflow: "hidden", background: "#0F1B2D" }}>
@@ -1151,6 +1174,11 @@ function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpen
                     <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.25)" }}>
                       <Play size={20} color="#fff" fill="#fff" />
                     </div>
+                    {isMine && (
+                      <button onClick={() => removeMedia(v, "video")} title={t.removePhone} style={{ position: "absolute", top: 4, right: 4, width: 22, height: 22, borderRadius: "50%", border: "none", background: "rgba(15,27,45,0.75)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                        <X size={13} />
+                      </button>
+                    )}
                   </div>
                 ))}
                 {isMine && (
