@@ -1017,18 +1017,45 @@ function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpen
 
   const removePhone = (idx) => setPhones((p) => p.filter((_, i) => i !== idx));
 
-  const addPhoto = (e) => {
-    const file = e.target.files && e.target.files[0];
-    if (!file) return;
-    setPhotos((p) => [...p, { id: Date.now(), url: URL.createObjectURL(file) }]);
-    e.target.value = "";
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+
+  const uploadMedia = async (file, kind) => {
+    setUploadError("");
+    setUploading(true);
+    try {
+      const ext = file.name.split(".").pop();
+      const path = `${company.id}/${kind}-${Date.now()}.${ext}`;
+      const { error: uploadErr } = await supabase.storage.from("company-media").upload(path, file);
+      if (uploadErr) {
+        setUploadError(uploadErr.message);
+        setUploading(false);
+        return null;
+      }
+      const { data } = supabase.storage.from("company-media").getPublicUrl(path);
+      setUploading(false);
+      return data.publicUrl;
+    } catch (e) {
+      setUploadError(t.sendError);
+      setUploading(false);
+      return null;
+    }
   };
 
-  const addVideo = (e) => {
+  const addPhoto = async (e) => {
     const file = e.target.files && e.target.files[0];
-    if (!file) return;
-    setVideos((v) => [...v, { id: Date.now(), url: URL.createObjectURL(file) }]);
     e.target.value = "";
+    if (!file) return;
+    const url = await uploadMedia(file, "photo");
+    if (url) setPhotos((p) => [...p, { id: Date.now(), url }]);
+  };
+
+  const addVideo = async (e) => {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    const url = await uploadMedia(file, "video");
+    if (url) setVideos((v) => [...v, { id: Date.now(), url }]);
   };
 
   const save = () => {
@@ -1128,17 +1155,18 @@ function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpen
                 ))}
                 {isMine && (
                   <>
-                    <button onClick={() => photoRef.current && photoRef.current.click()} style={{ width: "100%", aspectRatio: "1", borderRadius: 8, border: "1px dashed #D3D1C7", background: "#F7F6F2", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4, cursor: "pointer", color: "#5F5E5A", fontSize: 11 }}>
-                      <Plus size={16} /> {t.addPhoto}
+                    <button disabled={uploading} onClick={() => photoRef.current && photoRef.current.click()} style={{ width: "100%", aspectRatio: "1", borderRadius: 8, border: "1px dashed #D3D1C7", background: "#F7F6F2", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4, cursor: uploading ? "default" : "pointer", opacity: uploading ? 0.6 : 1, color: "#5F5E5A", fontSize: 11 }}>
+                      <Plus size={16} /> {uploading ? "…" : t.addPhoto}
                     </button>
-                    <button onClick={() => videoRef.current && videoRef.current.click()} style={{ width: "100%", aspectRatio: "1", borderRadius: 8, border: "1px dashed #D3D1C7", background: "#F7F6F2", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4, cursor: "pointer", color: "#5F5E5A", fontSize: 11 }}>
-                      <Plus size={16} /> {t.addVideo}
+                    <button disabled={uploading} onClick={() => videoRef.current && videoRef.current.click()} style={{ width: "100%", aspectRatio: "1", borderRadius: 8, border: "1px dashed #D3D1C7", background: "#F7F6F2", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4, cursor: uploading ? "default" : "pointer", opacity: uploading ? 0.6 : 1, color: "#5F5E5A", fontSize: 11 }}>
+                      <Plus size={16} /> {uploading ? "…" : t.addVideo}
                     </button>
                     <input type="file" accept="image/*" ref={photoRef} onChange={addPhoto} style={{ display: "none" }} />
                     <input type="file" accept="video/*" ref={videoRef} onChange={addVideo} style={{ display: "none" }} />
                   </>
                 )}
               </div>
+              {uploadError && <div style={{ color: "#993C1D", fontSize: 12, marginTop: 8 }}>{uploadError}</div>}
             </div>
           )}
         </div>
