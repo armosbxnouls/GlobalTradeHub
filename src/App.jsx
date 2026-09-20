@@ -67,8 +67,8 @@ const T = {
     resendCode: "Отправить код повторно",
     demoCodeNote: "Демо-режим: реальная СМС не отправляется, код показан во всплывающем уведомлении",
     sendError: "Не удалось отправить код. Проверьте номер и повторите попытку",
-    passwordPlaceholder: "Пароль (минимум 6 символов)",
-    passwordTooShort: "Пароль должен быть не короче 6 символов",
+    passwordPlaceholder: "Пароль (минимум 8 символов)",
+    passwordTooShort: "Пароль должен быть не короче 8 символов",
     confirmEmailNote: "Проверьте почту и подтвердите email, чтобы завершить регистрацию",
     autoReply: "Спасибо за сообщение! Наш менеджер ответит вам в ближайшее время.",
     profileTitle: "Профиль компании",
@@ -90,6 +90,13 @@ const T = {
     today: "Сегодня",
     editProfile: "Редактировать профиль",
     removePhone: "Удалить",
+    loginTitle: "Вход",
+    loginSubtitle: "Войдите, чтобы писать компаниям",
+    noAccountSwitch: "Нет аккаунта? Создать",
+    haveAccountSwitch: "Уже есть аккаунт? Войти",
+    wrongCredentials: "Неверный email или пароль",
+    loginToChat: "Войдите, чтобы написать сообщение",
+    demoCompanyNote: "Это демонстрационная карточка, чат недоступен.",
   },
   en: {
     appName: "GlobalTradeHub",
@@ -141,8 +148,8 @@ const T = {
     resendCode: "Resend code",
     demoCodeNote: "Demo mode: no real SMS is sent, the code is shown in a notification",
     sendError: "Couldn't send the code. Check the number and try again",
-    passwordPlaceholder: "Password (min. 6 characters)",
-    passwordTooShort: "Password must be at least 6 characters",
+    passwordPlaceholder: "Password (min. 8 characters)",
+    passwordTooShort: "Password must be at least 8 characters",
     confirmEmailNote: "Check your email and confirm it to finish registration",
     autoReply: "Thanks for your message! Our manager will reply shortly.",
     profileTitle: "Company profile",
@@ -164,6 +171,13 @@ const T = {
     today: "Today",
     editProfile: "Edit profile",
     removePhone: "Remove",
+    loginTitle: "Log in",
+    loginSubtitle: "Log in to message companies",
+    noAccountSwitch: "No account? Create one",
+    haveAccountSwitch: "Already have an account? Log in",
+    wrongCredentials: "Wrong email or password",
+    loginToChat: "Log in to send a message",
+    demoCompanyNote: "This is a demo listing, chat isn't available.",
   },
   es: {
     appName: "GlobalTradeHub",
@@ -215,8 +229,8 @@ const T = {
     resendCode: "Reenviar código",
     demoCodeNote: "Modo demo: no se envía un SMS real, el código se muestra en una notificación",
     sendError: "No se pudo enviar el código. Comprueba el número e inténtalo de nuevo",
-    passwordPlaceholder: "Contraseña (mín. 6 caracteres)",
-    passwordTooShort: "La contraseña debe tener al menos 6 caracteres",
+    passwordPlaceholder: "Contraseña (mín. 8 caracteres)",
+    passwordTooShort: "La contraseña debe tener al menos 8 caracteres",
     confirmEmailNote: "Revisa tu correo y confírmalo para completar el registro",
     autoReply: "¡Gracias por tu mensaje! Nuestro gestor responderá pronto.",
     profileTitle: "Perfil de la empresa",
@@ -238,6 +252,13 @@ const T = {
     today: "Hoy",
     editProfile: "Editar perfil",
     removePhone: "Quitar",
+    loginTitle: "Iniciar sesión",
+    loginSubtitle: "Inicia sesión para escribir a las empresas",
+    noAccountSwitch: "¿Sin cuenta? Crear una",
+    haveAccountSwitch: "¿Ya tienes cuenta? Inicia sesión",
+    wrongCredentials: "Correo o contraseña incorrectos",
+    loginToChat: "Inicia sesión para enviar un mensaje",
+    demoCompanyNote: "Esta es una ficha de demostración, el chat no está disponible.",
   },
   fr: {
     appName: "GlobalTradeHub",
@@ -289,8 +310,8 @@ const T = {
     resendCode: "Renvoyer le code",
     demoCodeNote: "Mode démo : aucun SMS réel n'est envoyé, le code s'affiche dans une notification",
     sendError: "Impossible d'envoyer le code. Vérifiez le numéro et réessayez",
-    passwordPlaceholder: "Mot de passe (6 caractères min.)",
-    passwordTooShort: "Le mot de passe doit contenir au moins 6 caractères",
+    passwordPlaceholder: "Mot de passe (8 caractères min.)",
+    passwordTooShort: "Le mot de passe doit contenir au moins 8 caractères",
     confirmEmailNote: "Vérifiez votre e-mail et confirmez-le pour terminer l'inscription",
     autoReply: "Merci pour votre message ! Notre responsable répondra bientôt.",
     profileTitle: "Profil de l'entreprise",
@@ -312,6 +333,13 @@ const T = {
     today: "Aujourd'hui",
     editProfile: "Modifier le profil",
     removePhone: "Supprimer",
+    loginTitle: "Connexion",
+    loginSubtitle: "Connectez-vous pour écrire aux entreprises",
+    noAccountSwitch: "Pas de compte ? En créer un",
+    haveAccountSwitch: "Déjà un compte ? Connexion",
+    wrongCredentials: "E-mail ou mot de passe incorrect",
+    loginToChat: "Connectez-vous pour envoyer un message",
+    demoCompanyNote: "Ceci est une fiche de démonstration, le chat n'est pas disponible.",
   },
   zh: {
     appName: "GlobalTradeHub",
@@ -363,8 +391,8 @@ const T = {
     resendCode: "重新发送验证码",
     demoCodeNote: "演示模式：不会发送真实短信，验证码将显示在通知中",
     sendError: "验证码发送失败，请检查号码后重试",
-    passwordPlaceholder: "密码（至少6位）",
-    passwordTooShort: "密码至少需要6个字符",
+    passwordPlaceholder: "密码（至少8位）",
+    passwordTooShort: "密码至少需要8个字符",
     confirmEmailNote: "请查收邮箱并确认邮件以完成注册",
     autoReply: "感谢您的留言！我们的负责人会尽快回复。",
     profileTitle: "企业主页",
@@ -386,6 +414,13 @@ const T = {
     today: "今天",
     editProfile: "编辑资料",
     removePhone: "删除",
+    loginTitle: "登录",
+    loginSubtitle: "登录后即可给企业发消息",
+    noAccountSwitch: "没有账号？去创建",
+    haveAccountSwitch: "已有账号？去登录",
+    wrongCredentials: "邮箱或密码错误",
+    loginToChat: "登录后才能发送消息",
+    demoCompanyNote: "这是演示卡片，聊天功能不可用。",
   },
   hy: {
     appName: "GlobalTradeHub",
@@ -437,8 +472,8 @@ const T = {
     resendCode: "Կրկին ուղարկել կոդը",
     demoCodeNote: "Դեմո ռեժիմ. իրական ՍՄՍ չի ուղարկվում, կոդը ցուցադրվում է ծանուցման մեջ",
     sendError: "Չհաջողվեց ուղարկել կոդը։ Ստուգեք համարը և կրկին փորձեք",
-    passwordPlaceholder: "Գաղտնաբառ (նվազագույնը 6 նիշ)",
-    passwordTooShort: "Գաղտնաբառը պետք է լինի առնվազն 6 նիշ",
+    passwordPlaceholder: "Գաղտնաբառ (նվազագույնը 8 նիշ)",
+    passwordTooShort: "Գաղտնաբառը պետք է լինի առնվազն 8 նիշ",
     confirmEmailNote: "Ստուգեք ձեր էլ. փոստը և հաստատեք այն գրանցումն ավարտելու համար",
     autoReply: "Շնորհակալություն հաղորդագրության համար! Մեր մենեջերը շուտով կպատասխանի։",
     profileTitle: "Ընկերության պրոֆիլ",
@@ -460,6 +495,13 @@ const T = {
     today: "Այսօր",
     editProfile: "Խմբագրել պրոֆիլը",
     removePhone: "Հեռացնել",
+    loginTitle: "Մուտք",
+    loginSubtitle: "Մուտք գործեք՝ ընկերություններին գրելու համար",
+    noAccountSwitch: "Հաշիվ չունե՞ք։ Ստեղծել",
+    haveAccountSwitch: "Արդեն ունե՞ք հաշիվ։ Մուտք",
+    wrongCredentials: "Սխալ էլ. փոստ կամ գաղտնաբառ",
+    loginToChat: "Մուտք գործեք հաղորդագրություն ուղարկելու համար",
+    demoCompanyNote: "Սա ցուցադրական քարտ է, չաթը հասանելի չէ։",
   },
 };
 
@@ -599,58 +641,138 @@ function VideoDemo({ t, onClose }) {
   );
 }
 
-function ChatPanel({ t, company, onClose }) {
-  const [messages, setMessages] = useState([
-    { from: "them", type: "text", text: "👋", time: nowTime() },
-  ]);
+/* ================= ChatPanel — real Supabase-backed chat ================= */
+function ChatPanel({ t, company, currentUserId, isOwner, visitorId, onClose, onRequireLogin }) {
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [sending, setSending] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
-  const [isTyping, setIsTyping] = useState(false);
+  const [loadError, setLoadError] = useState("");
   const fileRef = useRef(null);
   const scrollRef = useRef(null);
 
+  const effectiveVisitorId = visitorId || currentUserId;
+
+  useEffect(() => {
+    if (!currentUserId || !effectiveVisitorId) {
+      setLoading(false);
+      return;
+    }
+
+    let isActive = true;
+    setLoading(true);
+    setLoadError("");
+
+    const loadHistory = async () => {
+      const { data, error } = await supabase
+        .from("messages")
+        .select("*")
+        .eq("company_id", company.id)
+        .eq("visitor_id", effectiveVisitorId)
+        .order("created_at", { ascending: true });
+
+      if (!isActive) return;
+      if (error) {
+        setLoadError(error.message);
+      } else {
+        setMessages(data || []);
+      }
+      setLoading(false);
+    };
+
+    loadHistory();
+
+    const channel = supabase
+      .channel(`messages_${company.id}_${effectiveVisitorId}`)
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "messages", filter: `company_id=eq.${company.id}` },
+        (payload) => {
+          if (payload.new.visitor_id === effectiveVisitorId) {
+            setMessages((prev) => {
+              if (prev.some((m) => m.id === payload.new.id)) return prev;
+              return [...prev, payload.new];
+            });
+          }
+        }
+      )
+      .subscribe();
+
+    return () => {
+      isActive = false;
+      supabase.removeChannel(channel);
+    };
+  }, [company.id, effectiveVisitorId, currentUserId]);
+
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-  }, [messages, isTyping]);
+  }, [messages]);
 
-  const markLastMeAsRead = () => {
-    setMessages((m) => {
-      const copy = [...m];
-      for (let i = copy.length - 1; i >= 0; i--) {
-        if (copy[i].from === "me") { copy[i] = { ...copy[i], status: "read" }; break; }
-      }
-      return copy;
-    });
-  };
+  const send = async () => {
+    const text = input.trim();
+    if (!text || sending) return;
 
-  const send = () => {
-    if (!input.trim()) return;
-    const msg = input.trim();
-    setMessages((m) => [...m, { from: "me", type: "text", text: msg, time: nowTime(), status: "sent" }]);
+    if (!currentUserId) {
+      onRequireLogin && onRequireLogin();
+      return;
+    }
+
+    setSending(true);
     setInput("");
-    setIsTyping(true);
-    setTimeout(() => {
-      markLastMeAsRead();
-      setIsTyping(false);
-      setMessages((m) => [...m, { from: "them", type: "text", text: t.autoReply, time: nowTime() }]);
-    }, 1400);
+
+    const { error } = await supabase.from("messages").insert({
+      company_id: company.id,
+      visitor_id: effectiveVisitorId,
+      sender_id: currentUserId,
+      sender_is_owner: !!isOwner,
+      type: "text",
+      content: text,
+    });
+
+    setSending(false);
+    if (error) {
+      setLoadError(error.message);
+      setInput(text);
+    }
   };
 
-  const attachPhoto = (e) => {
+  const attachPhoto = async (e) => {
     const file = e.target.files && e.target.files[0];
-    if (!file) return;
-    const url = URL.createObjectURL(file);
-    setMessages((m) => [...m, { from: "me", type: "image", url, time: nowTime(), status: "sent" }]);
+    if (!file || !currentUserId) return;
     e.target.value = "";
-    setIsTyping(true);
-    setTimeout(() => {
-      markLastMeAsRead();
-      setIsTyping(false);
-      setMessages((m) => [...m, { from: "them", type: "text", text: t.autoReply, time: nowTime() }]);
-    }, 1400);
+
+    setSending(true);
+    const path = `${company.id}/${effectiveVisitorId}/${Date.now()}_${file.name}`;
+    const { error: uploadError } = await supabase.storage.from("chat-media").upload(path, file);
+
+    if (uploadError) {
+      setSending(false);
+      setLoadError(uploadError.message);
+      return;
+    }
+
+    const { data: urlData } = supabase.storage.from("chat-media").getPublicUrl(path);
+
+    const { error } = await supabase.from("messages").insert({
+      company_id: company.id,
+      visitor_id: effectiveVisitorId,
+      sender_id: currentUserId,
+      sender_is_owner: !!isOwner,
+      type: "image",
+      content: urlData.publicUrl,
+    });
+
+    setSending(false);
+    if (error) setLoadError(error.message);
   };
 
   const initials = company.name.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase();
+
+  const formatTime = (iso) => {
+    const d = new Date(iso);
+    return d.getHours().toString().padStart(2, "0") + ":" + d.getMinutes().toString().padStart(2, "0");
+  };
 
   return (
     <>
@@ -668,7 +790,6 @@ function ChatPanel({ t, company, onClose }) {
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontWeight: 600, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{company.name}</div>
-              <div style={{ fontSize: 12, color: isTyping ? "#5DCAA5" : "#7C8AA3" }}>{isTyping ? t.typing : t.online}</div>
             </div>
             <div style={{ display: "flex", gap: 6 }}>
               <button onClick={() => setShowVideo(true)} title={t.videoCall} style={{ background: "none", border: "none", color: "#D9A441", padding: 8, cursor: "pointer" }}>
@@ -681,57 +802,68 @@ function ChatPanel({ t, company, onClose }) {
           </div>
 
           <div ref={scrollRef} style={{ flex: 1, overflowY: "auto", padding: "14px 12px", display: "flex", flexDirection: "column", gap: 6, background: "#0b131d" }}>
-            <div style={{ alignSelf: "center", background: "#17232f", color: "#8896A8", fontSize: 12, padding: "4px 12px", borderRadius: 999, marginBottom: 6 }}>
-              {t.today}
-            </div>
-            {messages.map((m, i) => (
-              <div key={i} style={{ alignSelf: m.from === "me" ? "flex-end" : "flex-start", maxWidth: "78%" }}>
-                <div style={{
-                  background: m.from === "me" ? "#D9A441" : "#1E3352",
-                  color: m.from === "me" ? "#412402" : "#EAEEF5",
-                  padding: m.type === "image" ? 4 : "7px 10px",
-                  borderRadius: 12,
-                  fontSize: 14,
-                  position: "relative",
-                }}>
-                  {m.type === "image" ? (
-                    <img src={m.url} alt="" style={{ display: "block", maxWidth: "100%", maxHeight: 220, borderRadius: 8 }} />
-                  ) : (
-                    <span style={{ wordBreak: "break-word" }}>{m.text}</span>
-                  )}
-                </div>
-                <div style={{
-                  display: "flex", alignItems: "center", gap: 4, justifyContent: m.from === "me" ? "flex-end" : "flex-start",
-                  fontSize: 10.5, color: "#7C8AA3", marginTop: 2, padding: "0 2px",
-                }}>
-                  <span>{m.time}</span>
-                  {m.from === "me" && (m.status === "read" ? <CheckCheck size={12} color="#5DCAA5" /> : <Check size={12} />)}
-                </div>
+            {!currentUserId ? (
+              <div style={{ margin: "auto", textAlign: "center", color: "#9AA7BD", fontSize: 14, padding: 20 }}>
+                <p>{t.loginToChat}</p>
+                <button onClick={onRequireLogin} style={{ background: "#D9A441", border: "none", color: "#412402", fontWeight: 600, padding: "10px 18px", borderRadius: 999, cursor: "pointer" }}>
+                  {t.login}
+                </button>
               </div>
-            ))}
-            {isTyping && (
-              <div style={{ alignSelf: "flex-start", background: "#1E3352", padding: "9px 12px", borderRadius: 12, fontSize: 13, color: "#9AA7BD" }}>
-                {t.typing}
-              </div>
+            ) : loading ? (
+              <div style={{ margin: "auto", color: "#7C8AA3", fontSize: 13 }}>…</div>
+            ) : (
+              <>
+                <div style={{ alignSelf: "center", background: "#17232f", color: "#8896A8", fontSize: 12, padding: "4px 12px", borderRadius: 999, marginBottom: 6 }}>
+                  {t.today}
+                </div>
+                {messages.length === 0 && <div style={{ margin: "auto", color: "#7C8AA3", fontSize: 13 }}>👋</div>}
+                {messages.map((m) => {
+                  const isMine = m.sender_id === currentUserId;
+                  return (
+                    <div key={m.id} style={{ alignSelf: isMine ? "flex-end" : "flex-start", maxWidth: "78%" }}>
+                      <div style={{
+                        background: isMine ? "#D9A441" : "#1E3352",
+                        color: isMine ? "#412402" : "#EAEEF5",
+                        padding: m.type === "image" ? 4 : "7px 10px",
+                        borderRadius: 12,
+                        fontSize: 14,
+                      }}>
+                        {m.type === "image" ? (
+                          <img src={m.content} alt="" style={{ display: "block", maxWidth: "100%", maxHeight: 220, borderRadius: 8 }} />
+                        ) : (
+                          <span style={{ wordBreak: "break-word" }}>{m.content}</span>
+                        )}
+                      </div>
+                      <div style={{ display: "flex", justifyContent: isMine ? "flex-end" : "flex-start", fontSize: 10.5, color: "#7C8AA3", marginTop: 2, padding: "0 2px" }}>
+                        <span>{formatTime(m.created_at)}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </>
             )}
           </div>
 
-          <div style={{ padding: "10px 12px", borderTop: "1px solid #1E3352", display: "flex", gap: 8, alignItems: "center" }}>
-            <input type="file" accept="image/*" ref={fileRef} onChange={attachPhoto} style={{ display: "none" }} />
-            <button onClick={() => fileRef.current && fileRef.current.click()} style={{ background: "none", border: "none", color: "#7C8AA3", cursor: "pointer", padding: 6 }}>
-              <Paperclip size={20} />
-            </button>
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && send()}
-              placeholder={t.typeMessage}
-              style={{ flex: 1, background: "#17232f", border: "none", borderRadius: 999, padding: "10px 14px", color: "#EAEEF5", fontSize: 14, outline: "none" }}
-            />
-            <button onClick={send} style={{ background: "#D9A441", border: "none", color: "#412402", borderRadius: "50%", width: 38, height: 38, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
-              {input.trim() ? <Send size={16} /> : <Mic size={16} />}
-            </button>
-          </div>
+          {loadError && <div style={{ padding: "6px 14px", color: "#F09595", fontSize: 12 }}>{loadError}</div>}
+
+          {currentUserId && (
+            <div style={{ padding: "10px 12px", borderTop: "1px solid #1E3352", display: "flex", gap: 8, alignItems: "center" }}>
+              <input type="file" accept="image/*" ref={fileRef} onChange={attachPhoto} style={{ display: "none" }} />
+              <button onClick={() => fileRef.current && fileRef.current.click()} style={{ background: "none", border: "none", color: "#7C8AA3", cursor: "pointer", padding: 6 }}>
+                <Paperclip size={20} />
+              </button>
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && send()}
+                placeholder={t.typeMessage}
+                style={{ flex: 1, background: "#17232f", border: "none", borderRadius: 999, padding: "10px 14px", color: "#EAEEF5", fontSize: 14, outline: "none" }}
+              />
+              <button onClick={send} disabled={sending} style={{ background: "#D9A441", border: "none", color: "#412402", borderRadius: "50%", width: 38, height: 38, display: "flex", alignItems: "center", justifyContent: "center", cursor: sending ? "default" : "pointer", flexShrink: 0, opacity: sending ? 0.6 : 1 }}>
+                <Send size={16} />
+              </button>
+            </div>
+          )}
         </div>
       </div>
       {showVideo && <VideoDemo t={t} onClose={() => setShowVideo(false)} />}
@@ -743,7 +875,6 @@ function nowTime() {
   const d = new Date();
   return d.getHours().toString().padStart(2, "0") + ":" + d.getMinutes().toString().padStart(2, "0");
 }
-
 
 function AuthModal({ t, lang, onClose, onRegister }) {
   const [method, setMethod] = useState("email");
@@ -790,7 +921,6 @@ function AuthModal({ t, lang, onClose, onRegister }) {
       return;
     }
 
-    // Demo mode: simulate SMS locally, no backend configured.
     const code = String(Math.floor(1000 + Math.random() * 9000));
     setSentCode(code);
     setCodeSent(true);
@@ -820,7 +950,6 @@ function AuthModal({ t, lang, onClose, onRegister }) {
       return;
     }
 
-    // Demo mode: compare against the locally generated code.
     if (enteredCode.trim() === sentCode) {
       setPhoneVerified(true);
       setError("");
@@ -834,7 +963,7 @@ function AuthModal({ t, lang, onClose, onRegister }) {
       setError(t.fillAllFields);
       return;
     }
-    if (!form.password.trim() || form.password.length < 6) {
+    if (!form.password.trim() || form.password.length < 8) {
       setError(t.passwordTooShort);
       return;
     }
@@ -853,8 +982,6 @@ function AuthModal({ t, lang, onClose, onRegister }) {
     setError("");
     setSubmitting(true);
 
-    // Account email: real email for the email method, or a synthetic one tied to
-    // the verified phone number for the phone method (Supabase Auth needs an email).
     const accountEmail = method === "email"
       ? form.email.trim()
       : `${form.phone.replace(/[^0-9]/g, "")}@phone.globaltradehub.local`;
@@ -994,6 +1121,82 @@ function AuthModal({ t, lang, onClose, onRegister }) {
   );
 }
 
+/* ================= LoginModal — plain sign-in / sign-up for buyers ================= */
+function LoginModal({ t, onClose, onLoggedIn }) {
+  const [mode, setMode] = useState("login"); // "login" | "signup"
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const submit = async () => {
+    if (!email.trim() || !password.trim()) {
+      setError(t.fillAllFields);
+      return;
+    }
+    if (mode === "signup" && password.length < 8) {
+      setError(t.passwordTooShort);
+      return;
+    }
+    setError("");
+    setSubmitting(true);
+
+    if (mode === "login") {
+      const { data, error: signInError } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+      setSubmitting(false);
+      if (signInError) {
+        setError(t.wrongCredentials);
+        return;
+      }
+      onLoggedIn(data.user);
+    } else {
+      const { data, error: signUpError } = await supabase.auth.signUp({
+        email: email.trim(),
+        password,
+      });
+      setSubmitting(false);
+      if (signUpError) {
+        setError(signUpError.message);
+        return;
+      }
+      if (data.user) onLoggedIn(data.user);
+      else setError(t.confirmEmailNote);
+    }
+  };
+
+  return (
+    <div style={{ position: "fixed", inset: 0, background: "rgba(10,14,22,0.55)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 55, padding: 16 }} onClick={onClose}>
+      <div onClick={(e) => e.stopPropagation()} style={{ background: "#fff", borderRadius: 16, width: "100%", maxWidth: 360, padding: 24 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+          <h3 style={{ margin: 0, fontSize: 18, color: "#0F1B2D" }}>{t.loginTitle}</h3>
+          <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: "#0F1B2D" }}><X size={20} /></button>
+        </div>
+        <p style={{ fontSize: 13, color: "#5F5E5A", marginTop: 0, marginBottom: 16 }}>{t.loginSubtitle}</p>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          <input placeholder={t.regEmail} value={email} onChange={(e) => setEmail(e.target.value)} style={inputStyle} />
+          <input type="password" placeholder={t.passwordPlaceholder} value={password} onChange={(e) => setPassword(e.target.value)} style={inputStyle} />
+          {error && <div style={{ color: "#993C1D", fontSize: 13 }}>{error}</div>}
+
+          <button onClick={submit} disabled={submitting} style={{ padding: "10px 0", borderRadius: 10, border: "none", background: "#0F1B2D", color: "#D9A441", fontWeight: 600, cursor: submitting ? "default" : "pointer", opacity: submitting ? 0.7 : 1 }}>
+            {submitting ? "…" : mode === "login" ? t.login : t.submit}
+          </button>
+
+          <button
+            onClick={() => { setMode(mode === "login" ? "signup" : "login"); setError(""); }}
+            style={{ background: "none", border: "none", color: "#0F1B2D", fontSize: 13, cursor: "pointer", textDecoration: "underline", padding: 0 }}
+          >
+            {mode === "login" ? t.noAccountSwitch : t.haveAccountSwitch}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const inputStyle = { width: "100%", boxSizing: "border-box", padding: "10px 12px", borderRadius: 10, border: "1px solid #D3D1C7", fontSize: 14, color: "#0F1B2D", background: "#F7F6F2" };
 
 function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpenChat }) {
@@ -1059,14 +1262,12 @@ function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpen
   };
 
   const removeMedia = async (item, kind) => {
-    // Remove the underlying file from Supabase Storage, if we can determine its path.
     const marker = "/company-media/";
     const idx = item.url.indexOf(marker);
     if (idx !== -1) {
       const path = item.url.slice(idx + marker.length);
       await supabase.storage.from("company-media").remove([path]);
     }
-    // If this item was already saved to the database (real UUID id), remove that row too.
     if (typeof item.id === "string" && item.id.includes("-")) {
       await supabase.from("company_media").delete().eq("id", item.id);
     }
@@ -1226,7 +1427,6 @@ function CompanyProfileModal({ t, lang, company, isMine, onClose, onSave, onOpen
   );
 }
 
-
 export default function GlobalTradeHub() {
   const [lang, setLang] = useState("ru");
   const [langOpen, setLangOpen] = useState(false);
@@ -1236,13 +1436,13 @@ export default function GlobalTradeHub() {
   const [dbLoading, setDbLoading] = useState(true);
   const [currentUserId, setCurrentUserId] = useState(null);
   const [showAuth, setShowAuth] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const [toast, setToast] = useState("");
   const [chatCompany, setChatCompany] = useState(null);
   const [profileCompany, setProfileCompany] = useState(null);
 
   const t = T[lang];
 
-  // Track the logged-in Supabase session (persists across reloads automatically).
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setCurrentUserId(data.session?.user?.id || null));
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -1251,8 +1451,6 @@ export default function GlobalTradeHub() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  // Load real, persisted companies from the database and merge them with the
-  // built-in demo catalog above.
   const loadCompanies = () => {
     setDbLoading(true);
     supabase
@@ -1293,8 +1491,6 @@ export default function GlobalTradeHub() {
     return matchCat && matchQuery;
   });
 
-  // Called after AuthModal has already created the account and saved the row
-  // to Supabase — here we just refresh the catalog and show a confirmation.
   const handleRegister = (companyRow) => {
     loadCompanies();
     setShowAuth(false);
@@ -1302,15 +1498,22 @@ export default function GlobalTradeHub() {
     setTimeout(() => setToast(""), 3500);
   };
 
+  const handleLoggedIn = () => {
+    setShowLogin(false);
+  };
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setCurrentUserId(null);
+  };
+
   const handleProfileSave = async (id, updates) => {
-    // Persist address + phones to the companies table.
     const { error: updateError } = await supabase.from("companies").update({
       address: updates.address,
       phones: updates.phones,
     }).eq("id", id);
     if (updateError) throw updateError;
 
-    // Any newly added photos/videos that aren't in the database yet get inserted.
     const existingPhotoIds = new Set((profileCompany?.photos || []).filter((p) => typeof p.id !== "number" || String(p.id).length < 13).map((p) => p.id));
     const newMedia = [
       ...updates.photos.filter((p) => !existingPhotoIds.has(p.id)).map((p) => ({ type: "photo", url: p.url })),
@@ -1334,20 +1537,31 @@ export default function GlobalTradeHub() {
             <Globe size={22} color="#D9A441" />
             <span style={{ fontWeight: 700, fontSize: 17 }}>{t.appName}</span>
           </div>
-          <div style={{ position: "relative" }}>
-            <button onClick={() => setLangOpen(!langOpen)} style={{ background: "#142943", border: "1px solid #1E3352", color: "#EAEEF5", borderRadius: 8, padding: "8px 10px", display: "flex", alignItems: "center", gap: 6, cursor: "pointer", fontSize: 13 }}>
-              {LANGS[lang]} <ChevronDown size={14} />
-            </button>
-            {langOpen && (
-              <div style={{ position: "absolute", right: 0, top: "110%", background: "#142943", border: "1px solid #1E3352", borderRadius: 8, overflow: "hidden", minWidth: 130, zIndex: 40 }}>
-                {Object.keys(LANGS).map((code) => (
-                  <div key={code} onClick={() => { setLang(code); setLangOpen(false); }}
-                    style={{ padding: "9px 12px", fontSize: 13, cursor: "pointer", background: code === lang ? "#1E3352" : "transparent" }}>
-                    {LANGS[code]}
-                  </div>
-                ))}
-              </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            {currentUserId ? (
+              <button onClick={handleLogout} style={{ background: "#142943", border: "1px solid #1E3352", color: "#EAEEF5", borderRadius: 8, padding: "8px 12px", cursor: "pointer", fontSize: 13 }}>
+                {t.logout}
+              </button>
+            ) : (
+              <button onClick={() => setShowLogin(true)} style={{ background: "#142943", border: "1px solid #1E3352", color: "#EAEEF5", borderRadius: 8, padding: "8px 12px", cursor: "pointer", fontSize: 13 }}>
+                {t.login}
+              </button>
             )}
+            <div style={{ position: "relative" }}>
+              <button onClick={() => setLangOpen(!langOpen)} style={{ background: "#142943", border: "1px solid #1E3352", color: "#EAEEF5", borderRadius: 8, padding: "8px 10px", display: "flex", alignItems: "center", gap: 6, cursor: "pointer", fontSize: 13 }}>
+                {LANGS[lang]} <ChevronDown size={14} />
+              </button>
+              {langOpen && (
+                <div style={{ position: "absolute", right: 0, top: "110%", background: "#142943", border: "1px solid #1E3352", borderRadius: 8, overflow: "hidden", minWidth: 130, zIndex: 40 }}>
+                  {Object.keys(LANGS).map((code) => (
+                    <div key={code} onClick={() => { setLang(code); setLangOpen(false); }}
+                      style={{ padding: "9px 12px", fontSize: 13, cursor: "pointer", background: code === lang ? "#1E3352" : "transparent" }}>
+                      {LANGS[code]}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </header>
@@ -1438,7 +1652,28 @@ export default function GlobalTradeHub() {
       )}
 
       {showAuth && <AuthModal t={t} lang={lang} onClose={() => setShowAuth(false)} onRegister={handleRegister} />}
-      {chatCompany && <ChatPanel t={t} company={chatCompany} onClose={() => setChatCompany(null)} />}
+      {showLogin && <LoginModal t={t} onClose={() => setShowLogin(false)} onLoggedIn={handleLoggedIn} />}
+
+      {chatCompany && chatCompany.fromDb && (
+        <ChatPanel
+          t={t}
+          company={chatCompany}
+          currentUserId={currentUserId}
+          isOwner={!!(currentUserId && chatCompany.owner_id === currentUserId)}
+          visitorId={currentUserId}
+          onClose={() => setChatCompany(null)}
+          onRequireLogin={() => { setChatCompany(null); setShowLogin(true); }}
+        />
+      )}
+      {chatCompany && !chatCompany.fromDb && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(10,14,22,0.55)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 50 }} onClick={() => setChatCompany(null)}>
+          <div onClick={(e) => e.stopPropagation()} style={{ background: "#fff", borderRadius: 16, padding: 24, maxWidth: 320, textAlign: "center" }}>
+            <p style={{ margin: "0 0 14px", color: "#0F1B2D", fontSize: 14 }}>{t.demoCompanyNote}</p>
+            <button onClick={() => setChatCompany(null)} style={{ background: "#0F1B2D", color: "#D9A441", border: "none", borderRadius: 10, padding: "9px 18px", cursor: "pointer" }}>{t.close}</button>
+          </div>
+        </div>
+      )}
+
       {profileCompany && (
         <CompanyProfileModal
           t={t}
